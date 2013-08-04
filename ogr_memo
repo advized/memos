@@ -1,0 +1,25 @@
+Pour import csv vers Postgres
+*****************************
+ogr2ogr -f PostgreSQL PG:"dbname=idp_yemen host='localhost' user='postgres' password='postgres'" sanaa.csv
+
+Pour exporter Postgis query to KML
+*********************************
+ogr2ogr -f KML nomKML.kml PG:'dbname=idp_yemen host=localhost user=postgres password=postgres' -sql="select the_geom from sanaa"
+
+Pour import TAB to Postgres
+*******************************
+ogr2ogr -f PostgreSQL PG:"dbname=idp_yemen host='localhost' user='postgres' password='postgres'" Boundaries_refugees_Sanaa.TAB 
+
+Pour changer SRS
+*******************************
+ogr2ogr -t_srs EPSG:4326 world_new.shp world_wgs.shp 
+
+Pour charger shp avec multipolygon et en même temps changer proj
+*********************************
+ogr2ogr -f PostgreSQL PG:"dbname=uganda host='localhost' user='postgres' password='postgres'" Uganda_districts2010.shp -nlt MULTIPOLYGON -t_SRS EPSG:4326
+
+
+Pour connaître projection d'une couche
+**************************************
+ogrinfo -al -so Uganda_county2006_WGS84.shp
+

@@ -1,0 +1,140 @@
+RADIOMETRE DIGITAL
+******************
+Marque Jeulin: about 700 euros
+Demander ref Richard
+
+
+
+***************
+LANDSAT Imagery
+***************
+			Launched		Retired			Instruments
+Landsat-1 (ERTS-1)	July 23, 1972		January, 1978		RBV, MSS
+Landsat-2		January 22, 1975	July, 1983		RBV, MSS
+Landsat-3		March 5, 1978		September, 1983		RBV, MSS
+Landsat-4		July 16, 1982		June, 2001*		MSS, TM
+Landsat-5		March 1, 1984	 	March 2012			MSS, TM
+Landsat-6		October 5, 1993		October 5, 1993		ETM
+Landsat-7		April 15, 1999			 		ETM+
+
+Rem: Since 2003 scan line corrector failure in Landsat-7
+
+----------------
+- Spectral bands
+----------------
+ETM+ Bands
+Band Number	µm	Resolution
+1	0.45-0.515	30 m
+2	0.525-0.605	30 m
+3	0.63-0.69	30 m
+4	0.75-0.90	30 m
+5	1.55-1.75	30 m
+6	10.4-12.5	60 m
+7	2.09-2.35	30 m
+8	0.52-0.9	15 m
+
+
+Band
+	RBV			MSS		TM			ETM+
+1	.48-.57 µm green			.45-.52 µm blue		.45-.52 µm blue
+2	.58-.68 µm red	 			.52-.6 µm green		.53-.61 µm green
+3	.69-.83 µm IR	 			.63-.69 µm red		.63-.69 µm red
+4				.5-.6 µm green	.76-.9 µm NIR		.75-.9 µm NIR
+5 				.6-.7 µm red	1.55-1.75 µm SWIR	1.55-1.75 µm SWIR
+6 				0.7-0.8 µm IR	10.4-12.5 µm TIR	10.4-12.5 µm TIR
+7 				0.8-1.1 µm IR	2.08-2.35 µm SWIR	2.1-2.35 µm SWIR
+8									.52-.9 µm panchromatic	
+
+IR = infrared; NIR = near infrared; SWIR = short wavelength infrared; TIR = thermal infrared (long wavelength);
+and µm = micron or micrometer.
+
+Band 6 of the TM and ETM+ instruments is different from all the other bands because it does not record reflected
+light energy, but rather heat energy emitted by the Earth's surface.
+
+Bands MSS 4,5,6,7 have been renamed MSS 1,2,3,4 as from Landsat 4
+
+--------------------
+- Spatial resolution
+--------------------
+ETM: 28.5m (1,2,3,4,5,6,7,8). 15m for band8 (panchro)
+MSS: 60 m
+
+Landsat TM/ETM scene (footprint/swath width) 185km*185km
+Landsat MSS scene swath: 180km*180km
+
+----------------------------
+- Worldwide reference system
+----------------------------
+WRS1 for MSS
+WRS2  for TM/ETM
+
+-------------------------------------------------------------------------------------
+- Products and data sources (sources: http://landsat.gsfc.nasa.gov/data/reduced.html):
+-------------------------------------------------------------------------------------
+
+Main sources:
+Global portal (EROS data center at http://eros.usgs.gov)
+GloVis (USGS Global Visualization Viewer at http://glovis.usgs.gov/)
+USGS Earth Explorer at http://earthexplorer.usgs.gov/
+GLCF (Global LandcoverFacility at http://glcf.umd.edu/ and ftp://ftp.glcf.umiacs.umd.edu/glcf)
+
+TerraLook (http://terralook.cr.usgs.gov/):
+  ASTER and Landsat imagery for non-specialist (through jpeg). Accessible through GloVis
+
+GLCF (Global Land Cover Facility): 
+  
+
+MRLC (Multi-Resolution Land Characteristics consortium):
+  is a group of US federal agency who acquired Landsat (both 5 and 7) imagery country wide in order to create a land cover database. Individual scenes are available at 45USD each.
+
+GeoCover (band 7,4,2 -RGB-):
+  built in geocover and cannot be changed
+  NASA Stennis Space Center's Landsat GeoCover Data Site (at https://zulu.ssc.nasa.gov/mrsid/):
+  Worldwide mosaicked Landsat data tiles in MrSID format from circa 1990 and circa 2000. Free, courtesy of NASA SSC. Important note: this imagery should only be considered as imagery, NOT as data. Creation of this mosaic involved data resampling, data blending, color balancing and data compression, i.e., the "digital numbers" that remain no longer have fidelity as reflective measurements made by the satellite.
+
+
+USGS offers three decadal orthorectified landsat imagery including as well the new generation GLS imagery with even better geometric accuracy (18m) 
+
+GLS (Global Land Survey at http://gls.umd.edu/ and http://landsat.usgs.gov/science_GLS.php):
+  partnership between NASA and USGS. The GLS is assembling a global dataset of 30-meter resolution satellite imagery to support measurement of Earth's land cover and rates of land cover change during the first decade of the 21st century. 
+
+Landsat.org: 
+  provides Landsat at substantial discount and for free. 
+
+Urban Landsat at (http://sedac.ciesin.columbia.edu/data/collection/ulandsat)
+
+-------------
+- Data format
+-------------
+HDF (Hierarchical Data Format)
+FAST from EOSAT
+Geotiff
+Short briefing on differences between BSQ, BIL and BIP (http://idlcoyote.com/ip_tips/where3.html)
+or
+http://webhelp.esri.com/arcgisdesktop/9.2/index.cfm?TopicName=BIL,_BIP,_and_BSQ_raster_files
+
+----------------------
+- Levels of Correction
+----------------------
+Level L1G (Systematic correction): systematic radiometric and geometric accuracy, which is derived from data collected by the sensor and spacecraft. Geometric accuracy of the systematically corrected product should be within 250 meters (1 sigma) for low-relief areas at sea level.
+
+Level L1Gt (Systematic Terrain correction): provides systematic, radiometric, and geometric accuracy, while employing a Digital Elevation Model (DEM) for topographic accuracy. Landsat 7 scenes over Antarctica are the only data processed to an L1Gt. The Ramp V2 DEM is the elevation correction source.
+
+Level L1T (Systematic Terrain Correction): provides systematic radiometric and geometric accuracy by incorporating ground control points while employing a Digital Elevation Model (DEM) for topographic accuracy. Geodetic accuracy of the product depends on the accuracy of the ground control points and the resolution of the DEM used: Ground control points used for Level 1T correction come from the GLS2000 data set. DEM sources include SRTM, NED, CDED, DTED, and GTOPO 30 
+
+---------------------------------------
+- Landsat processing systems comparison
+---------------------------------------
+
+LPGS (Level 1 Product Generation System): Currently, all Landsat data is processed through LPGS. LPGS metadata is contained in a MTL.txt file, which accompanies all data files.
+
+NLAPS (National Land Archive Production System), Some available Landsat 4 and Landsat 5 data were processed through NLAPS. NLAPS metadata is contained in a .WO file, which accompanies all data files.
+
+Sources: http://landsat.usgs.gov/products_IP_LPGSvsNLAPS.php
+
+**********
+REFERENCES
+**********
+http://zulu.ssc.nasa.gov/mrsid/tutorial/Landsat%20Tutorial-V1.html
+
+

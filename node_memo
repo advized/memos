@@ -1,0 +1,12 @@
+# debug with node
+
+to instert breakpoints: add "debugger" statements into
+your code
+
+node debug myfile.js
+
+c (to continue to next breakpoint)
+
+repl (to use repl)
+
+

@@ -1,0 +1,37 @@
+// create session
+	screen -S name_session
+
+// list sessions
+	screen -ls
+
+// attach a session
+	screen -x name_session
+	screen -r name_session
+
+// detach a session
+	screen -d name_session
+
+// remove session
+	ctrl+a :quit
+
+
+// rename terminal window
+	ctrl+a A
+
+// create new terminal window
+	ctrl+a c
+
+// list and switch terminal windows
+	ctrl+a "
+
+// switch terminal windows next
+	ctrl+a n
+
+// switch terminal windows previous
+	ctrl+a n
+
+// switch terminal windows number
+	ctrl+a number
+
+// delete terminal window
+	ctrl+A K

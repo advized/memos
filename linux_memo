@@ -1,0 +1,140 @@
+Installer paquet/dépots:
+************************
+Liste des dépôts dans /etc/apt/sources.list
+
+Pour ajouter un nouveau dépôt:
+  sudo add-apt-repository ppa:<nom_du_dépôt>
+
+Pour ajouter un nouveau dépôt via directement la liste des sources:
+  Editer:
+  /etc/apt/sources.list
+  en rajoutant une ligne du style:
+  deb http://cran.univ-lyon1.fr//bin/linux/ubuntu oneiric/
+  apt-get update
+  apt-get upgrade (si mise à jour)
+  ou
+  apt-get install (si install)
+
+
+Pour installer un paquet 3 étapes:
+  apt-get update (optionnel) pour mettre cache à jour si pas déjà fait
+  apt-cache search monpaquet (opt) pour rechercher le paquet si pas nom exact
+
+Pour avoir une description plus détaillé du paquet:
+  apt-cache show nompaquet
+  apt-get install monpaquet pour télécharger et installer paquet
+
+pour désinstaller un paquet:
+  apt-get remove nompaquet
+
+pour supprimer aussi les dépendances devenues inutiles:
+  apt-get autoremove
+
+pour faire des upgrade des paquets:
+  apt-get upgrade (penser à faire un update des dépôts avant)
+
+pour connaître version d'un paquet installé
+  apt-cache show tilemill
+
+Pour lister dépôts
+  ls -l /etc/apt/sources.list.d/
+
+To create a dump of all installed packages
+  sudo dpkg --get-selections > list.txt
+  then on a new machine to restore
+  sudo dpkg --clear-selections
+  sudo dpkg --set-selections < list.txt
+
+To list particular package 
+dpkg --get-selections |grep ruby
+
+To know where is a bin or library
+  whereis name_of_bin_or_lib
+
+
+Chercher un fichier:
+********************
+ find / -name '*file*' (ici on cherche depuis la racine)
+
+Pour visualiser une image dans le terminal:
+******************************************
+ eog image.png (eyes of gnome) 
+
+Installer PostGIS/Postgres
+**************************
+ sudo apt-get install postgresql postgresql-client 
+                      postgresql-contrib-version pgadmin
+
+pour installer PostGIS
+ sudo apt-get install postgresql-version-postgis
+
+Pour créer postgis database template
+ createdb postgistemplate
+ createlang plpgsql postgistemplate
+ psql -d postgistemplate -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql 
+ idem avec spatial_ref_sys.sql
+
+Il est nécessaire de changer le password de postgres user
+ sudo -u postgres psql
+ ALTER ROLE postgres WITH ENCRYPTED PASSWORD 'postgres' 
+
+User account management:
+***********************
+Pour changer de compte:
+sudo su newaccount (postgres par exemple)
+
+Pour monter répertoir Windows
+****************************
+sudo mount -t vboxsf shared_drive ~/Windows/
+avec shared_drive nom donné depuis virtual box au répertoire à monter
+et ~/Windows/ linux folder où monter
+
+
+Problème with keyrings
+**********************
+rm ~/.gnome2/keyrings/login.keyring
+
+tar commands
+************
+* Afficher liste des fichiers :
+ tar -tf archive.tar
+* Extraction (éventuellement pour un fichier ou un répertoire spécifique) :
+ tar -xvf archive.tar [fichier1... ]
+* Décompression + extraction (spécifique à certaines implémentations, comme GNU tar ou bsdtar) :
+ tar -xzvf archive.tar.gz
+ tar -xjvf archive.tar.bz2
+ tar -xYvf archive.tar.lzma
+* Archivage :
+ tar -cvf fichier.tar MonRepertoire1 [MonRepertoire2... ]
+* Compression et archivage :
+ tar -czvf archive.tar.gz MonRepertoire
+ tar -cjvf archive.tar.bz2 MonRepertoire
+
+Connaître version package
+*************************
+dpkg --list | grep tilemill
+or
+dpkg -p tilemill
+
+Pour connaître version de la machine
+************************************
+uname -a
+Pour version ubuntu cat /etc/issue
+ou
+lsb_release -c
+
+Comment mesurer bandwidth descendante
+*************************************
+wget --output-document=/dev/null http://speedtest.wdc01.softlayer.com/downloads/test500.zip
+
+Comment connaître version soft
+******************************
+soft_name --version
+
+Convert CRLF to LF with Linux
+*****************************
+dos2unix filename
+
+
+
+

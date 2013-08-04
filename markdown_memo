@@ -1,0 +1,39 @@
+HEADERS
+# Header 1
+## Header 2
+### Header 3
+
+TEXT ANNOTATIONS
+*This text will be emphasized.*
+**This text will be strong.**
+Inline `code` in typewriter style
+
+LINKS
+[GitHub](http://github.com)
+
+IMAGES
+![Alt text](/images/logo.png)
+
+BLOCKQUOTES
+William Zinser:
+
+> Writing is thinking on paper. (no-more)
+
+UNORDERED LIST
+* Item 1
+* Item 2
+  * Item 2a
+  * Item 2b
+
+ORDERED LIST
+1. Item 1
+2. Item 2
+   * Item 2a
+   * Item 2b
+
+CODE BLOCKS
+Use 4 spaces indentation:
+
+    function identity(x) {
+      return x;
+    }

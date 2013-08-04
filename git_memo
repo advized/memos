@@ -1,0 +1,73 @@
+git push -u origin
+git pull origin	
+
+AFTER HAVING CREATED A REPOSITORY UNDER GITHUB
+**********************************************
+touch README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/franckalbinet/test-ssh.git
+git push -u origin master
+Push an existing repository from the command line
+
+
+git remote add origin https://github.com/franckalbinet/test-ssh.git
+git push -u origin master
+
+
+CLONE EXISTING REP
+*****************
+git clone git://github.com/schacon/grit.git
+
+pour cloner branche spécifiques:
+git clone -b gh-pages git://github.com/schacon/grit.git
+
+REMOTE GIT SERVER GITHUB
+****************************
+Pour lister les remotes:
+git remote -v
+
+add origin
+**********
+git remote add origin git@gitserver:geoportal-arcal/dss.git
+
+set origin address
+******************
+git remote set-url origin git@github.com:USERNAME/USERNAME.github.com.git
+
+Various URL GITHUB
+******************
+https:// -> read-only and read/write
+git:// -> Git read only
+git@github.com: SSH read/write
+
+CREATE NEW SSH KEY
+******************
+ssh-keygen -t rsa -C "your_email@youremail.com"
+clip < ~/.ssh/id_rsa.pub
+
+SET NOTEPAD++ as gitdiff tool
+*****************************
+git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"
+
+BRANCHES
+********
+# To create a new branch and switch to it
+git checkout -b iss53
+
+# To delete a branch
+git branch -d the_local_branch
+
+# To push to a specific branch
+git push -u origin gh-pages
+
+clip public key
+***************
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+config
+******
+git config color.ui true
+
+
