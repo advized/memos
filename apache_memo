@@ -1,4 +1,23 @@
-apache2ctl -Sapache2ctl -apache2ctl -apache2ctl -S
+# virtual hosts 
+/etc/apache2/sites-available/example.com
+in our case sym link to /home/setup/virtual_hosts_apache
+
+# sites 
+/var/wwww/
+in our case sym link to /home/sites
+
+# add DNS record in linode
+
+# enable virtual host
+a2ensite virtualhost_name
+
+# reload apache
+/etc/init.d/apache2 reload
+
+# memo symlink, syntax is:
+ln -s target symlink_name
+
+
 # list enabled virtual hosts
 apache2ctl -S
 
