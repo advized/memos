@@ -14,7 +14,6 @@
 // remove session
 	ctrl+a :quit
 
-
 // rename terminal window
 	ctrl+a A
 

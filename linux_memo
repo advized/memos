@@ -136,5 +136,7 @@ Convert CRLF to LF with Linux
 dos2unix filename
 
 
-
+List tcp ports
+**************
+netstat -ltnp
 
