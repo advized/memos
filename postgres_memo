@@ -1,0 +1,5 @@
+# To check/start/stop postgresql
+/etc/init.d/postgresql status
+/etc/init.d/postgresql start
+/etc/init.d/postgresql stop
+

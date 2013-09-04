@@ -1,0 +1,6 @@
+# Precompile assets
+bundle exec rake assets:precompile
+
+# Deploy database to production
+rake db:migrate RAILS_ENV=production
+
