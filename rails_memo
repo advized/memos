@@ -1,6 +1,79 @@
+****************************
+RVM (Ruby Version Manager)
+****************************
+# use/create and define as default a gemset
+rvm use 1.9.3@rails3tutorial2nd --create --default 
+
+# list all gemsets and current one
+rvm gemset list
+
+
+****************************
+Rake
+****************************
 # Precompile assets
-bundle exec rake assets:precompile
+bundle exec rake assets:precompile # bundle install ensure that gem rake version specified 
+                                   # in the appli Gemfile is used
+
+# To create db specified in database.yml
+rake db:create:all
 
 # Deploy database to production
 rake db:migrate RAILS_ENV=production
 
+# To undo a single migration step
+rake db:rollback
+
+# To go all the way back to the beginning
+rake db:migrate VERSION=0
+
+
+****************************
+Bundle
+****************************
+# Install gems for specific rails application
+bundle install --without production # here without production group (see Gemfile)
+
+# To avoid to call bundle exec rake/rspec ...
+# in order to get sure that we user proper gem version
+rvm get head && rvm reload
+chmod +x $rvm_path/hooks/after_cd_bundler
+# then in your app_folder
+bundle install --binstubs=./bundler_stubs
+# Add bundler_stubs in your .gitignore
+
+
+****************************
+Rails
+****************************
+# Create new rails application
+rails new application_name  # or
+rails new application_name --skip-test-unit # if want to skip unit tests
+                                            # we will use RSpec instead
+rails new myapp --database=postgresql # With postgresql
+
+# Generate new model and associated views and controller with scaffold
+rails generate scaffold User name:string email:string # here create a users table with 2 attributes 
+                                                      # need then to be migrated with rake db:migrate
+
+# Generate controller
+rails generate controller StaticPages home help
+
+# Destroy controller
+rails destroy controller StaticPages home help
+
+# Launch rails console with the production environment
+rails console production
+
+
+********************************************************
+RSpec (Request Specification) Behavor Driven Development
+********************************************************
+# Specify that we use RSpec in place of Test::Unit
+rails generate rspec:install
+
+# Create static_pages_spec.rb in spec/requests directory 
+rails generate integration_test static_pages
+
+# Launch a test
+bundle exec rspec ../../../spec/requests/static_pages_spec.rb

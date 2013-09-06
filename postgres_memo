@@ -3,3 +3,19 @@
 /etc/init.d/postgresql start
 /etc/init.d/postgresql stop
 
+
+# psql
+
+# To log to postgresql
+su postgres
+psql
+
+# Once logged with psql
+# Know postgres version
+SELECT version();
+
+# Meta commands
+\list # List all databases
+\c my_db # Connect to my_db
+
+
