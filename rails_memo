@@ -81,6 +81,7 @@ bundle exec rspec ../../../spec/requests/static_pages_spec.rb
 
 # How to make testing addictive
 # 1. Install Guard to automate the running of the tests
+
   # Add following line in Gemfile under :development, :test group
   gem 'guard-rspec', '0.5.5'
   # Under : test group add
@@ -96,6 +97,7 @@ bundle exec rspec ../../../spec/requests/static_pages_spec.rb
   guard 'rspec', :version => 2, :all_after_pass =>false, do
   # Now start Guard
   bundle exec guard
+
 # 2. Speeding up Tests with Spork
 # Avoid to load all rails environment before executing tests
   # Add spork to Gemfile unde :test group
@@ -116,7 +118,13 @@ bundle exec rspec ../../../spec/requests/static_pages_spec.rb
   # Now use Spork with Guard
   bundle exec guard init spork
   # Edit the Guard file in order to add the
+  # Add :cli key to the guard function 
+  guard 'rspec', :version => 2, :all_after_pass =>false, :cli => '--drb' do
+  # and the following function within guard 'spork', ... function
+  watch('spec/support/') 
 
+# Finally, start Guard and Spork at the same time in a specific terminal
+  bundle exec guard
 
         
 
