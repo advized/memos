@@ -34,6 +34,7 @@ Bundle
 # Install gems for specific rails application
 bundle install --without production # here without production group (see Gemfile)
 
+# To eliminate bundle exec
 # To avoid to call bundle exec rake/rspec ...
 # in order to get sure that we user proper gem version
 rvm get head && rvm reload
@@ -67,7 +68,7 @@ rails console production
 
 
 ********************************************************
-RSpec (Request Specification) Behavor Driven Development
+RSpec (Request Specification) Behavior Driven Development
 ********************************************************
 # Specify that we use RSpec in place of Test::Unit
 rails generate rspec:install
@@ -77,3 +78,45 @@ rails generate integration_test static_pages
 
 # Launch a test
 bundle exec rspec ../../../spec/requests/static_pages_spec.rb
+
+# How to make testing addictive
+# 1. Install Guard to automate the running of the tests
+  # Add following line in Gemfile under :development, :test group
+  gem 'guard-rspec', '0.5.5'
+  # Under : test group add
+  gem 'rb-inotify', '0.8.8' # Simple wrapper over the inotify
+                            # Linux kernel subsystem for monitoring
+                            # changes to files and directories
+  gem 'libnotify', '0.5.9'  # Ruby bindings for libnotify using FFI
+                            # A small dialog box appearing while
+                            # executing test and showing outputs
+  bundle install
+  bundle exec guard init rspec # Init Guard to work with Rspec
+  # Update the Guardfile. Add ':all_after_pass => false' as shown below 
+  guard 'rspec', :version => 2, :all_after_pass =>false, do
+  # Now start Guard
+  bundle exec guard
+# 2. Speeding up Tests with Spork
+# Avoid to load all rails environment before executing tests
+  # Add spork to Gemfile unde :test group
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
+  # Install bundle
+  bundle install
+  # Now bootstrap the Spork configuration
+  bundle exec spork --bootstrap 
+  # Edit RSpec config file in spec/spec_helper.rb
+  # so that environment get loaded ina prefork block
+  # This imply copying and pasting block starting by ENV["RAILS_ENV...
+  # The edit .rspec file to tell Rspec to use automatically Spork
+  # By adding the following line:
+  --drb
+  # Warning whenever your edit the routes.rb file you will need to 
+  # restart spork
+  # Now use Spork with Guard
+  bundle exec guard init spork
+  # Edit the Guard file in order to add the
+
+
+        
+
