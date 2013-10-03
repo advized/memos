@@ -21,11 +21,26 @@ rake db:create:all
 # Deploy database to production
 rake db:migrate RAILS_ENV=production
 
+
+# To delete all records from the database
+bundle exec rake db:reset
+
+# To populate a fake database with Faker gem
+# See Rails tutorial p.404
+bundle exec rake db:populate
+
 # To undo a single migration step
 rake db:rollback
 
 # To go all the way back to the beginning
 rake db:migrate VERSION=0
+
+# To sync a test database
+# Important afeter a rake db:migrate action
+rake db:test:prepare
+
+# To clean/delete the public/assets folder
+bundle exec rake assets:clean
 
 
 ****************************
@@ -66,6 +81,8 @@ rails destroy controller StaticPages home help
 # Launch rails console with the production environment
 rails console production
 
+# Launch rails console on a sandbox
+rails console --sandbox
 
 ********************************************************
 RSpec (Request Specification) Behavior Driven Development
@@ -85,7 +102,7 @@ bundle exec rspec ../../../spec/requests/static_pages_spec.rb
   # Add following line in Gemfile under :development, :test group
   gem 'guard-rspec', '0.5.5'
   # Under : test group add
-  gem 'rb-inotify', '0.8.8' # Simple wrapper over the inotify
+  gem 'rb-inotify', '~> 0.9' # Simple wrapper over the inotify
                             # Linux kernel subsystem for monitoring
                             # changes to files and directories
   gem 'libnotify', '0.5.9'  # Ruby bindings for libnotify using FFI

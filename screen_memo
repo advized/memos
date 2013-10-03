@@ -34,5 +34,6 @@
 
 // delete terminal window
 	ctrl+A K
+
 // scroll
         ctrl+a Esc (then arrows)
