@@ -1,0 +1,26 @@
+******
+BASICS
+******
+
+# Create project
+django-admin.py startproject project_name
+
+# Start development server on specific IP and port
+python manage.py runserver advized.org:8000
+
+# Create default DB tables specified in
+# settings.py INSTALLED_APPS
+python manage.py syncdb
+# admin/admin
+
+# Create a new app
+python manage.py startapp name_app
+
+# Create your model then add app into 
+# settings.py INSTALLED_APPS
+
+# Check SQL output before sync
+python manage.py sql name_app
+
+# Then sync
+python manage.py syncdb

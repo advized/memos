@@ -1,2 +1,20 @@
 # python version
 python -V
+
+############
+# virtualenv
+# ##########
+mkdir env
+# to create
+virtualenv env/virt1 --no-site-packages
+# to activate
+source env/virt1/bin/activate
+# to deactivate
+deactivate
+# to list packages install yolk
+pip install yolk
+# and
+yolk -l
+
+
+

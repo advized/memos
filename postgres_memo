@@ -4,7 +4,12 @@
 /etc/init.d/postgresql stop
 
 
+# To list databases outside psql
+sudo -u postgres psql -l
+
+######
 # psql
+# ####
 
 # To log to postgresql
 su postgres
