@@ -138,5 +138,11 @@ dos2unix filename
 
 List tcp ports
 **************
-netstat -ltnp
+  sudo netstat -ltnp
+or 
+  sudo netstat -plunt
 
+List lib installed
+******************
+/sbin/ldconfig -p
+/sbin/ldconfig -v # to know the version
