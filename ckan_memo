@@ -1,0 +1,33 @@
+##########################
+# Compiling css at runtime
+##########################
+
+# When debug=true in development.ini
+    sudo apt-get install npm
+    npm install less nodewatch
+
+# In a separate terminal launch
+# in activated virtual env
+    cd /usr/lib/ckan/defaut/src/ckan
+    ./bin/less
+
+##############################
+# Handling virtual environment
+##############################
+
+# Activate
+. /usr/lib/ckan/default/bin/activate  
+
+# deactivate
+  deactivate
+
+######################
+# Paster commands line
+######################
+# Command syntax
+  cd /usr/lib/ckan/default/src/ckan
+  paster command --config=/etc/ckan/default/development.ini
+
+# Launch paster server
+  paster serve /etc/ckan/default/development.ini
+
