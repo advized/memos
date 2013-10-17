@@ -1,0 +1,9 @@
+# To insert string in multiple lines
+  1. put cursor on char (column) where you want to insert your string
+  2. ctrl+v
+  3. jj (to select the selected column)
+  4. Maj+i
+  5. write text
+  6. Escape
+
+
