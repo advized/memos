@@ -51,6 +51,9 @@ dpkg --get-selections |grep ruby
 To know where is a bin or library
   whereis name_of_bin_or_lib
 
+To know if package installed
+  dpkg -s name_package
+
 
 Chercher un fichier:
 ********************
