@@ -149,3 +149,7 @@ List lib installed
 ******************
 /sbin/ldconfig -p
 /sbin/ldconfig -v # to know the version
+
+ssh Port forwarding
+*******************
+ssh -CA ganesh -L 5000:localhost:5000

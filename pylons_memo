@@ -1,0 +1,14 @@
+########
+# Paster
+########
+
+# To create a pylons project
+  paster create --template=pylons HelloWorld
+    or
+  paster create --t=pylons HelloWorld
+
+# Start Paste Http server
+  paster serve --reload development.ini # assume you are in same dir as config file
+
+# Create a controller (here named hello)
+  paster controller hello
