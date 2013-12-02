@@ -54,6 +54,7 @@ To know where is a bin or library
 To know if package installed
   dpkg -s name_package
 
+  apt-cache policy name_package
 
 Chercher un fichier:
 ********************
@@ -153,3 +154,18 @@ List lib installed
 ssh Port forwarding
 *******************
 ssh -CA ganesh -L 5000:localhost:5000
+
+setup linux firewall
+********************
+# check rules
+iptables -L
+
+# edit
+/etc/iptables.firewall.rules
+
+# update rules
+iptables-restore < /etc/iptables.firewall.rules
+
+scp command
+***********
+scp SourceFile user@host:directory/TargetFile

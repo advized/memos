@@ -7,6 +7,13 @@
 # To list databases outside psql
 sudo -u postgres psql -l
 
+# config files folder
+/etc/postgresql/9.2/main
+
+# import data using ogr2ogr
+ogr2ogr -f PostgreSQL "PG:dbname=your_db_name user=postgres password=postgres host=localhost port=5433" yourfile.shp
+
+
 ######
 # psql
 # ####
@@ -15,6 +22,8 @@ sudo -u postgres psql -l
 # create tenplate_postgis template database
 # ####
 createdb -E UTF8 template_postgis
+
+
 # note how to execute a query from outsite - here update pg_database catalog (template_postgis is a template)
 psql -d postgres -c \
  "UPDATE pg_database SET datistemplate='true' WHERE datname='template_postgis'"
@@ -25,8 +34,6 @@ psql -d template_postgis -f rtpostgis.sql # FAILED !!!
 psql -d template_postgis -f topology.sql
 psql -d template_postgis -c "GRANT ALL ON geometry_columns TO PUBLIC;"
 psql -d template_postgis -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
-
-
 
 # To log to postgresql
 su postgres
