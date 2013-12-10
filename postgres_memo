@@ -15,10 +15,6 @@ ogr2ogr -f PostgreSQL "PG:dbname=your_db_name user=postgres password=postgres ho
 
 
 ######
-# psql
-# ####
-
-######
 # create tenplate_postgis template database
 # ####
 createdb -E UTF8 template_postgis
@@ -39,6 +35,19 @@ psql -d template_postgis -c "GRANT ALL ON spatial_ref_sys TO PUBLIC;"
 su postgres
 psql
 
+######
+# psql
+# ####
+
+# Import csv to postgres
+1. check separator and digital separator format as well (, or .)
+2. the owner of the file to import should be a postgres user as well
+3. the table to import to need to be created first with apporiate name and type
+4. if csv file is from windows, first execute 'dos2unix your_file' if on linux
+5. take care of accents if using UTF8
+6. then import
+
+COPY target_table FROM '/path/to/your_csv_file' DELIMITER ',' CSV;
 
 # Once logged with psql
 # Know postgres version
@@ -48,4 +57,4 @@ SELECT version();
 \list # List all databases
 \c my_db # Connect to my_db
 \du # list users
-
+\d+ your_table # table details - attributes, name, ...
