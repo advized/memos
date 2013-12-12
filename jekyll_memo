@@ -1,0 +1,2 @@
+# start server with auto reload
+jekyll serve --watch

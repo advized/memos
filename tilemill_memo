@@ -7,4 +7,5 @@
 # To generate .mbtiles from MapBox project
 /usr/share/tilemill/index.js export particles ~/Documents/MapBox/tiles/particles_20131206.mbtiles --bbox='9.3713,47.4875,16.7981,51.0138' --format=mbtiles --minzoom=4 --maxzoom=9
 
-
+# start Tilestream
+./index.js --host advized.org
